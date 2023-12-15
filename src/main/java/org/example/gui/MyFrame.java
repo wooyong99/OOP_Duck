@@ -2,8 +2,10 @@ package org.example.gui;
 
 import java.awt.Frame;
 import java.awt.Graphics;
+import org.example.duck.Duck;
 
 public class MyFrame extends Frame {
+    private static Duck[] duckList = new Duck[10];
     public final static int FRAME_WIDTH = 800;
     public final static int FRAME_HEIGHT = 600;
 
@@ -16,6 +18,16 @@ public class MyFrame extends Frame {
 
     @Override
     public void paint(Graphics g) {
-        
+        addDuckList();
+    }
+
+    // Duck생성 후 DuckList에 추가
+    private void addDuckList() {
+        for (int i = 0; i < duckList.length; i++) {
+            if (duckList[i] == null) {
+                duckList[i] = Duck.create();
+                return;
+            }
+        }
     }
 }
