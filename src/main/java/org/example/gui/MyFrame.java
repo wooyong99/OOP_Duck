@@ -16,6 +16,6 @@ public class MyFrame extends Frame {
 
     @Override
     public void paint(Graphics g) {
-        System.out.println("실행");
+        
     }
 }
