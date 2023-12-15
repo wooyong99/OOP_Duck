@@ -23,7 +23,8 @@
 
 ## 결과
 
-![image](https://github.com/wooyong99/OOP_Duck/assets/85385921/c3011092-e6e8-4f0d-baf2-929a1cff5155)
+![image](https://github.com/wooyong99/OOP_Duck/assets/85385921/54162d9f-4779-4a7c-8361-0c20e3635388)
+
 
 
 
