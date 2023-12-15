@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import org.example.duck.Duck;
 
 public class MyFrame extends Frame {
-    private static Duck[] duckList = new Duck[10];
+    private static Duck[] duckList = new Duck[20];
     public final static int FRAME_WIDTH = 800;
     public final static int FRAME_HEIGHT = 600;
 
