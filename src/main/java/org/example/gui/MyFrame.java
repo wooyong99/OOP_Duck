@@ -26,7 +26,7 @@ public class MyFrame extends Frame {
     private void addDuckList() {
         for (int i = 0; i < duckList.length; i++) {
             if (duckList[i] == null) {
-                duckList[i] = Duck.create();
+                duckList[i] = Duck.create(i);
                 return;
             }
         }
