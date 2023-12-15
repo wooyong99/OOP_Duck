@@ -4,8 +4,8 @@ import java.awt.Frame;
 import java.awt.Graphics;
 
 public class MyFrame extends Frame {
-    public final int FRAME_WIDTH = 800;
-    public final int FRAME_HEIGHT = 600;
+    public final static int FRAME_WIDTH = 800;
+    public final static int FRAME_HEIGHT = 600;
 
 
     public MyFrame() {
