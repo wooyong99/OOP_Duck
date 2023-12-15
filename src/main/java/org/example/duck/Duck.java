@@ -15,10 +15,10 @@ public abstract class Duck {
     }
 
     public static Duck create() {
-        switch (rnd.nextInt(3)) {
-            case 1:
+        switch (rnd.nextInt(2)) {
+            case 0:
                 return new MallardDuck();
-            case 2:
+            case 1:
                 return new RedDuck();
         }
         return null;
