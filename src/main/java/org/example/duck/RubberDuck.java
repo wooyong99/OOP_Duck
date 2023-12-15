@@ -2,15 +2,14 @@ package org.example.duck;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import org.example.strategy.FlyStrategy;
+import org.example.strategy.SoundStrategy;
 
-public class RedDuck extends Duck implements FlyStrategy {
-
-    public RedDuck(int idx) {
+public class RubberDuck extends Duck implements SoundStrategy {
+    public RubberDuck(int idx) {
         super();
         this.idx = idx;
-        this.type = "RedDuck";
-        this.color = Color.RED;
+        this.type = "RubberDuck";
+        this.color = Color.YELLOW;
     }
 
     @Override
@@ -21,19 +20,11 @@ public class RedDuck extends Duck implements FlyStrategy {
         g.drawString(msg, x - DUCK_SIZE, y - DUCK_SIZE);
         swim(g);
         quack(g);
-        fly(g);
     }
 
     @Override
     public void quack(Graphics g) {
-        g.setColor(Color.BLACK);
-        g.drawString("꽥꽥", x + DUCK_SIZE, y);
-    }
-
-
-    @Override
-    public void fly(Graphics g) {
-        g.setColor(Color.BLACK);
-        g.drawString("날다", x - DUCK_SIZE, y + DUCK_SIZE);
+        g.setColor(Color.RED);
+        g.drawString("삑삑", x + DUCK_SIZE, y);
     }
 }

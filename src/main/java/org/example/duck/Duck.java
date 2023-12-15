@@ -4,10 +4,10 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 import org.example.gui.MyFrame;
+import org.example.strategy.DuckStrategy;
 
-public abstract class Duck {
+public abstract class Duck implements DuckStrategy {
     protected static Random rnd = new Random();
-    public final static int DUCK_SIZE = 40;
     protected int idx;
     protected int x;
     protected int y;
@@ -20,13 +20,32 @@ public abstract class Duck {
     }
 
     public static Duck create(int idx) {
-        switch (rnd.nextInt(2)) {
+        switch (rnd.nextInt(4)) {
             case 0:
                 return new MallardDuck(idx);
             case 1:
                 return new RedDuck(idx);
+            case 2:
+                return new RubberDuck(idx);
+            case 3:
+                return new DecoyDuck(idx);
         }
         return null;
+    }
+
+    @Override
+    public void display(Graphics g) {
+        g.setColor(color);
+        g.fillOval(x, y, DUCK_SIZE, DUCK_SIZE);
+        String msg = idx + "번 " + type;
+        g.drawString(msg, x - DUCK_SIZE, y - DUCK_SIZE);
+        swim(g);
+    }
+
+    @Override
+    public void swim(Graphics g) {
+        g.setColor(Color.BLACK);
+        g.drawString("수영", x - DUCK_SIZE, y);
     }
 
     public int getX() {
@@ -36,12 +55,6 @@ public abstract class Duck {
     public int getY() {
         return y;
     }
-
-    public abstract void display(Graphics g);
-
-    public abstract void swim();
-
-    public abstract void quack();
 
     public Color getColor() {
         return this.color;
