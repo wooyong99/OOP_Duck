@@ -19,6 +19,7 @@ public class MyFrame extends Frame {
     @Override
     public void paint(Graphics g) {
         addDuckList();
+        displayDuckList(g);
     }
 
     // Duck생성 후 DuckList에 추가
@@ -28,6 +29,15 @@ public class MyFrame extends Frame {
                 duckList[i] = Duck.create();
                 return;
             }
+        }
+    }
+
+    private void displayDuckList(Graphics g) {
+        for (int i = 0; i < duckList.length; i++) {
+            if (duckList[i] == null) {
+                return;
+            }
+            duckList[i].display(g);
         }
     }
 }

@@ -1,13 +1,16 @@
 package org.example.duck;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.util.Random;
 import org.example.gui.MyFrame;
 
 public abstract class Duck {
-    private static Random rnd = new Random();
-    private int x;
-    private int y;
-    private String type;
+    protected static Random rnd = new Random();
+    public final static int DUCK_SIZE = 40;
+    protected int x;
+    protected int y;
+    protected Color color;
 
     public Duck() {
         this.x = rnd.nextInt(MyFrame.FRAME_WIDTH - 100) + 50;//50~750
@@ -24,9 +27,21 @@ public abstract class Duck {
         return null;
     }
 
-    public abstract void display();
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public abstract void display(Graphics g);
 
     public abstract void swim();
 
     public abstract void quack();
+
+    public Color getColor() {
+        return this.color;
+    }
 }
