@@ -4,19 +4,15 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 import org.example.gui.MyFrame;
-import org.example.strategy.quack.SoundStrategy;
-import org.example.strategy.swim.SwimStrategy;
 
 public abstract class Duck {
-    protected SoundStrategy soundStrategy;
-    protected SwimStrategy swimStrategy;
     protected static Random rnd = new Random();
     public final static int DUCK_SIZE = 30;
     protected int idx;
     protected int x;
     protected int y;
     protected Color color;
-    protected String type;
+    protected DuckType duckType;
 
     public Duck() {
         this.x = rnd.nextInt(MyFrame.FRAME_WIDTH - 100) + 50;//50~750
@@ -39,9 +35,9 @@ public abstract class Duck {
 
     public void display(Graphics g) {
         g.setColor(Color.BLACK);
-        String msg = idx + "번 " + type;
+        String msg = idx + "번 " + duckType.getName();
         g.drawString(msg, x - DUCK_SIZE, y - DUCK_SIZE);
-        swimStrategy.swim(g, this);
+        duckType.swim(g, this);
         g.setColor(color);
         g.fillOval(x, y, DUCK_SIZE, DUCK_SIZE);
     }

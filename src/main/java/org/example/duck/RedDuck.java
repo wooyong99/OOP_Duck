@@ -2,27 +2,23 @@ package org.example.duck;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import org.example.strategy.quack.QuackStrategyImpl;
-import org.example.strategy.swim.SwimStrategyImpl;
 
 public class RedDuck extends Duck {
 
     public RedDuck(int idx) {
         super();
         this.idx = idx;
-        this.type = "RedDuck";
+        this.duckType = DuckType.RED;
         this.color = Color.RED;
-        this.swimStrategy = new SwimStrategyImpl();
-        this.soundStrategy = new QuackStrategyImpl();
     }
 
     @Override
     public void display(Graphics g) {
         g.setColor(Color.BLACK);
-        String msg = idx + "번 " + type;
+        String msg = idx + "번 " + duckType.getName();
         g.drawString(msg, x - DUCK_SIZE, y - DUCK_SIZE);
-        swimStrategy.swim(g, this);
-        soundStrategy.quack(g, this);
+        duckType.swim(g, this);
+        duckType.sound(g, this);
         fly(g);
         g.setColor(color);
         g.fillOval(x, y, DUCK_SIZE, DUCK_SIZE);
