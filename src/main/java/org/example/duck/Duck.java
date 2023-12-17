@@ -4,10 +4,14 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
 import org.example.gui.MyFrame;
-import org.example.strategy.DuckStrategy;
+import org.example.strategy.quack.SoundStrategy;
+import org.example.strategy.swim.SwimStrategy;
 
-public abstract class Duck implements DuckStrategy {
+public abstract class Duck {
+    protected SoundStrategy soundStrategy;
+    protected SwimStrategy swimStrategy;
     protected static Random rnd = new Random();
+    public final static int DUCK_SIZE = 30;
     protected int idx;
     protected int x;
     protected int y;
@@ -33,19 +37,13 @@ public abstract class Duck implements DuckStrategy {
         return null;
     }
 
-    @Override
     public void display(Graphics g) {
-        g.setColor(color);
-        g.fillOval(x, y, DUCK_SIZE, DUCK_SIZE);
+        g.setColor(Color.BLACK);
         String msg = idx + "번 " + type;
         g.drawString(msg, x - DUCK_SIZE, y - DUCK_SIZE);
-        swim(g);
-    }
-
-    @Override
-    public void swim(Graphics g) {
-        g.setColor(Color.BLACK);
-        g.drawString("수영", x - DUCK_SIZE, y);
+        swimStrategy.swim(g, this);
+        g.setColor(color);
+        g.fillOval(x, y, DUCK_SIZE, DUCK_SIZE);
     }
 
     public int getX() {
