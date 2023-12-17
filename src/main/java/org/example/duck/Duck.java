@@ -46,4 +46,12 @@ public abstract class Duck {
     public Color getColor() {
         return this.color;
     }
+
+    public DuckType getDuckType() {
+        return duckType;
+    }
+
+    public int getIdx() {
+        return idx;
+    }
 }

@@ -14,7 +14,7 @@ public class RubberDuck extends Duck {
     @Override
     public void display(Graphics g) {
         duckType.swim(g, this);
-        duckType.sound(g, this);
         duckType.display(g, this);
+        duckType.sound(g, this);
     }
 }

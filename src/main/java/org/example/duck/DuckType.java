@@ -1,9 +1,10 @@
 package org.example.duck;
 
-import static org.example.duck.Duck.DUCK_SIZE;
-
 import java.awt.Color;
 import java.awt.Graphics;
+import org.example.strategy.display.CircleStaragyImpl;
+import org.example.strategy.display.DisplayStrategy;
+import org.example.strategy.display.RectStrategyImpl;
 import org.example.strategy.quack.BBikStrategyImpl;
 import org.example.strategy.quack.DDackStrategyImpl;
 import org.example.strategy.quack.QuackStrategyImpl;
@@ -12,30 +13,30 @@ import org.example.strategy.swim.SwimStrategy;
 import org.example.strategy.swim.SwimStrategyImpl;
 
 public enum DuckType {
-    RED("RedDuck", new SwimStrategyImpl(), new QuackStrategyImpl()),
-    MALLARD("MallardDuck", new SwimStrategyImpl(), new QuackStrategyImpl()),
-    DECOY("DecoyDuck", new SwimStrategyImpl(), new DDackStrategyImpl()),
-    RUBBER("RubberDuck", new SwimStrategyImpl(), new BBikStrategyImpl());
+    RED("RedDuck", new CircleStaragyImpl(), new SwimStrategyImpl(), new QuackStrategyImpl()),
+    MALLARD("MallardDuck", new CircleStaragyImpl(), new SwimStrategyImpl(), new QuackStrategyImpl()),
+    DECOY("DecoyDuck", new CircleStaragyImpl(), new SwimStrategyImpl(), new DDackStrategyImpl()),
+    RUBBER("RubberDuck", new RectStrategyImpl(), new SwimStrategyImpl(), new BBikStrategyImpl());
     private String typeName;
     private SoundStrategy soundStrategy;
     private SwimStrategy swimStrategy;
+    private DisplayStrategy displayStrategy;
 
-    DuckType(String typeName, SwimStrategy swimStrategy) {
+    DuckType(String typeName, DisplayStrategy displayStrategy, SwimStrategy swimStrategy) {
         this.typeName = typeName;
+        this.displayStrategy = displayStrategy;
         this.swimStrategy = swimStrategy;
     }
 
-    DuckType(String typeName, SwimStrategy swimStrategy, SoundStrategy soundStrategy) {
+    DuckType(String typeName, DisplayStrategy displayStrategy, SwimStrategy swimStrategy, SoundStrategy soundStrategy) {
         this.typeName = typeName;
+        this.displayStrategy = displayStrategy;
         this.swimStrategy = swimStrategy;
         this.soundStrategy = soundStrategy;
     }
 
     public void display(Graphics g, Duck duck) {
-        String msg = duck.idx + "번 " + duck.duckType.getName();
-        g.drawString(msg, duck.x - DUCK_SIZE, duck.y - DUCK_SIZE);
-        g.setColor(duck.color);
-        g.fillOval(duck.x, duck.y, DUCK_SIZE, DUCK_SIZE);
+        this.displayStrategy.display(g, duck);
     }
 
     public void swim(Graphics g, Duck duck) {
