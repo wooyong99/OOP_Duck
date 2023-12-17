@@ -19,6 +19,6 @@ public class RubberDuck extends Duck {
         duckType.swim(g, this);
         duckType.sound(g, this);
         g.setColor(color);
-        g.fillOval(x, y, DUCK_SIZE, DUCK_SIZE);
+        g.fillRect(x, y, DUCK_SIZE, DUCK_SIZE);
     }
 }
