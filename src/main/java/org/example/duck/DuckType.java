@@ -13,7 +13,7 @@ import org.example.strategy.swim.SwimStrategy;
 import org.example.strategy.swim.SwimStrategyImpl;
 
 public enum DuckType {
-    RED("RedDuck", new CircleStaragyImpl(), new SwimStrategyImpl(), new QuackStrategyImpl()),
+    RED("RedDuck", new RectStrategyImpl(), new SwimStrategyImpl(), new QuackStrategyImpl()),
     MALLARD("MallardDuck", new CircleStaragyImpl(), new SwimStrategyImpl(), new QuackStrategyImpl()),
     DECOY("DecoyDuck", new CircleStaragyImpl(), new SwimStrategyImpl(), new DDackStrategyImpl()),
     RUBBER("RubberDuck", new RectStrategyImpl(), new SwimStrategyImpl(), new BBikStrategyImpl());
