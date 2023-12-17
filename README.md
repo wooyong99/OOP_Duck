@@ -18,6 +18,7 @@
 - MallardDuck과 RedDuck은 꽥꽥, RubberDuck은 삑삑 소리를 낼 수 있다.
 - MallardDuck과 RedDuck 타입의 오리만 날 수 있다.
 - <u>날지 못하고 소리는 낼 수 있는</u> 오리는 사각형으로 출력한다.
+- DecoyDuck은 딱딱으로 소리낼 수 있다.
 
 ## 객체 역할 및 책임 부여
 
