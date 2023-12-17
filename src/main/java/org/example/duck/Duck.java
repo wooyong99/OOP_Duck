@@ -33,14 +33,7 @@ public abstract class Duck {
         return null;
     }
 
-    public void display(Graphics g) {
-        g.setColor(Color.BLACK);
-        String msg = idx + "번 " + duckType.getName();
-        g.drawString(msg, x - DUCK_SIZE, y - DUCK_SIZE);
-        duckType.swim(g, this);
-        g.setColor(color);
-        g.fillOval(x, y, DUCK_SIZE, DUCK_SIZE);
-    }
+    public abstract void display(Graphics g);
 
     public int getX() {
         return x;

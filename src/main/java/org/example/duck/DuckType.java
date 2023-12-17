@@ -1,5 +1,8 @@
 package org.example.duck;
 
+import static org.example.duck.Duck.DUCK_SIZE;
+
+import java.awt.Color;
 import java.awt.Graphics;
 import org.example.strategy.quack.BBikStrategyImpl;
 import org.example.strategy.quack.DDackStrategyImpl;
@@ -28,7 +31,15 @@ public enum DuckType {
         this.soundStrategy = soundStrategy;
     }
 
+    public void display(Graphics g, Duck duck) {
+        String msg = duck.idx + "번 " + duck.duckType.getName();
+        g.drawString(msg, duck.x - DUCK_SIZE, duck.y - DUCK_SIZE);
+        g.setColor(duck.color);
+        g.fillOval(duck.x, duck.y, DUCK_SIZE, DUCK_SIZE);
+    }
+
     public void swim(Graphics g, Duck duck) {
+        g.setColor(Color.BLACK);
         this.swimStrategy.swim(g, duck);
     }
 
