@@ -26,6 +26,14 @@
 - ```MyFrame``` : GUI프레임 생성, 이벤트 처리, DuckList 관리, Duck객체 표시
 - ```Duck``` : 랜덤 Duck 생성, 수영, 소리, 그리기하기
 
+## 설계 방법
+#### 1. 객체 추출
+  1. main object
+  2. 20개의 duck object -> **스타일 4가지** -> **4개의 Class 필요**
+  3. java.awt.Frame
+#### 2. 객체 역할 정의 -> Class 정의
+#### 3.  설계 완료 -> 구현 시작
+  
 ## 결과
 
 ![image](https://github.com/wooyong99/OOP_Duck/assets/85385921/0f7fdc8c-b400-4005-8b00-966a7fa55502)
